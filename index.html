@@ -26,7 +26,7 @@
         <div class="container">
             <h2 style="text-align: center;">Find a Tutor or Contact Us</h2>
             <!-- Unified Form -->
-            <form id="contact-form" action="https://formsubmit.co/fujamadedaniel@gmail.com" method="POST" onsubmit="return handleSubmit(event)">
+            <form id="contact-form" action="https://formsubmit.co/fujamadedaniel@gmail.com" method="POST">
                 <!-- Subject -->
                 <label for="subject">Select a subject:</label>
                 <select id="subject" name="subject" required>
@@ -71,24 +71,7 @@
     </div>
 
     <script>
-        function handleSubmit(event) {
-            // Prevent the default form submission (page reload)
-            event.preventDefault();
-            
-            // Submit the form using FormSubmit
-            const form = document.getElementById("contact-form");
-            fetch(form.action, {
-                method: form.method,
-                body: new FormData(form),
-            }).then(response => {
-                // Hide the form and show thank you message
-                document.getElementById("contact-form").style.display = 'none';
-                document.getElementById("thank-you-message").style.display = 'block';
-            }).catch(error => {
-                // Handle any error that occurs during the submission
-                alert("There was an error submitting the form. Please try again.");
-            });
-        }
+        // This part is no longer needed because FormSubmit handles it automatically
     </script>
 </body>
 </html>
