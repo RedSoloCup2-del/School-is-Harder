@@ -23,7 +23,8 @@
             <p>Please pick the subject, day, and time for your session.</p>
         </div>
         <div class="container">
-            <h2 style="text-align: center;">Find a Tutor</h2>
+            <h2 style="text-align: center;">Find a Tutor or Contact Us</h2>
+            <!-- Unified Form -->
             <form action="https://formspree.io/f/maykdppq" method="POST">
                 <label for="subject">Select a subject:</label>
                 <select id="subject" name="subject" required>
@@ -48,27 +49,14 @@
                     <option value="2 hours">2 Hours</option>
                 </select>
 
-                <button type="submit">Submit</button>
-            </form>
+                <label for="message">Additional Message (Optional):</label>
+                <textarea name="message" placeholder="How can we help you?" rows="5"></textarea>
 
-            <p id="confirmation" style="text-align: center;"></p>
+                <button type="submit">Submit</button>
+                <!-- Optional: redirect after submit -->
+                <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html">
+            </form>
         </div>
     </div>
-
-    <!-- Contact Form -->
-    <div class="form-container">
-        <h2>Contact School Is Hard Tutoring</h2>
-        <form action="https://formsubmit.co/fujamadedaniel@gmail.com" method="POST">
-            <!-- Replace the email above with your actual email -->
-            <input type="text" name="name" placeholder="Full Name" required>
-            <input type="email" name="email" placeholder="Email Address" required>
-            <textarea name="message" placeholder="How can we help you?" rows="5" required></textarea>
-            <button type="submit">Send Message</button>
-
-            <!-- Optional: redirect after submit -->
-            <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html">
-        </form>
-    </div>
-
 </body>
 </html>
