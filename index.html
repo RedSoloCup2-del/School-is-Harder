@@ -25,7 +25,8 @@
         <div class="container">
             <h2 style="text-align: center;">Find a Tutor or Contact Us</h2>
             <!-- Unified Form -->
-            <form action="https://formspree.io/f/maykdppq" method="POST">
+            <form action="https://formsubmit.co/fujamadedaniel@gmail.com" method="POST">
+                <!-- Subject -->
                 <label for="subject">Select a subject:</label>
                 <select id="subject" name="subject" required>
                     <option value="math">Math</option>
@@ -34,29 +35,40 @@
                     <option value="biology">Biology</option>
                 </select>
 
+                <!-- Name -->
                 <label for="name">Your Name:</label>
                 <input type="text" id="name" name="name" placeholder="Your Name" required>
 
+                <!-- Email -->
                 <label for="email">Your Email:</label>
                 <input type="email" id="email" name="email" placeholder="Your Email" required>
 
+                <!-- Availability -->
                 <label for="availability">Select your available times:</label>
                 <input type="datetime-local" id="availability" name="availability" required>
 
+                <!-- Session Length -->
                 <label for="session-length">Select session length:</label>
                 <select id="session-length" name="session-length" required>
                     <option value="1 hour">1 Hour</option>
                     <option value="2 hours">2 Hours</option>
                 </select>
 
+                <!-- Message (Optional) -->
                 <label for="message">Additional Message (Optional):</label>
                 <textarea name="message" placeholder="How can we help you?" rows="5"></textarea>
 
-                <button type="submit">Submit</button>
-                <!-- Optional: redirect after submit -->
+                <!-- Hidden Fields -->
+                <!-- Form submit subject -->
+                <input type="hidden" name="_subject" value="New tutoring request">
+                <!-- Redirect to thank-you page -->
                 <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html">
+
+                <!-- Submit Button -->
+                <button type="submit">Submit</button>
             </form>
         </div>
     </div>
 </body>
+</html>
 </html>
