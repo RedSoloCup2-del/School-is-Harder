@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutoring Service</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        .main-container { display: flex; max-width: 900px; width: 100%; }
+        .info-box { width: 40%; padding: 30px; background-color: #eef; border-radius: 10px; margin-right: 20px; text-align: left; }
+        .container { width: 60%; padding: 30px; border: 1px solid #ddd; border-radius: 10px; background-color: #f9f9f9; text-align: left; }
+        label, select, input, button { width: 100%; padding: 12px; margin: 12px 0; display: block; font-size: 16px; }
+        button { text-align: center; background-color: #007bff; color: white; border: none; cursor: pointer; }
+        button:hover { background-color: #0056b3; }
+        .admin-section { margin-top: 30px; background-color: #f0f0f0; padding: 20px; border-radius: 10px; display: none; }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="info-box">
+            <h2>Welcome to School is Hard Tutoring!</h2>
+            <p>Please pick the subject, day, and time for your session.</p>
+        </div>
+        <div class="container">
+            <h2 style="text-align: center;">Find a Tutor</h2>
+            <form id="tutor-form">
+                <label for="subject">Select a subject:</label>
+                <select id="subject" required>
+                    <option value="math">Math</option>
+                    <option value="physics">Physics</option>
+                    <option value="chemistry">Chemistry</option>
+                    <option value="biology">Biology</option>
+                </select>
+                
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" placeholder="Your Name" required>
+                
+                <label for="email">Your Email:</label>
+                <input type="email" id="email" placeholder="Your Email" required>
+                
+                <label for="availability">Select your available times:</label>
+                <input type="datetime-local" id="availability" required>
+                
+                <label for="session-length">Select session length:</label>
+                <select id="session-length" required>
+                    <option value="1 hour">1 Hour</option>
+                    <option value="2 hours">2 Hours</option>
+                </select>
+                
+                <button type="submit">Submit</button>
+            </form>
+            
+            <p id="confirmation" style="text-align: center;"></p>
+            
+            <!-- Section to display the info after submission (for admin only) -->
+            <div id="admin-info" class="admin-section">
+                <h3>Submitted Information (Admin Only)</h3>
+                <p><strong>Name:</strong> <span id="admin-name"></span></p>
+                <p><strong>Email:</strong> <span id="admin-email"></span></p>
+                <p><strong>Subject:</strong> <span id="admin-subject"></span></p>
+                <p><strong>Availability:</strong> <span id="admin-availability"></span></p>
+                <p><strong>Session Length:</strong> <span id="admin-session-length"></span></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('tutor-form').addEventListener('submit', function(event) {
+            event.preventDefault();  // Prevent the form from reloading the page
+
+            // Get values from the form
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const subject = document.getElementById("subject").value;
+            const availability = document.getElementById("availability").value;
+            const sessionLength = document.getElementById("session-length").value;
+
+            // Update the confirmation message
+            document.getElementById("confirmation").innerText = `Thank you, ${name}! Your tutoring request for ${subject} is confirmed.`;
+
+            // Display the admin section with the submitted info
+            document.getElementById("admin-info").style.display = "block";  // Show the admin section
+            document.getElementById("admin-name").innerText = name;
+            document.getElementById("admin-email").innerText = email;
+            document.getElementById("admin-subject").innerText = subject;
+            document.getElementById("admin-availability").innerText = availability;
+            document.getElementById("admin-session-length").innerText = sessionLength;
+
+            // Optionally, you can clear the form here if needed
+            document.getElementById("tutor-form").reset();
+        });
+    </script>
+</body>
+</html>
